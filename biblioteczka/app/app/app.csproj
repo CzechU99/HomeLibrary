@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ApplicationIcon>icons8-bookshop-50_white.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons8-add-image-30.png" />
+    <None Remove="icons8-tear-off-calendar-50.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icons8-bookshop-50_white.ico" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.32" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.5.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="icons8-add-image-30.png" />
+    <Resource Include="icons8-tear-off-calendar-50.png" />
+  </ItemGroup>
+
+
+
+</Project>

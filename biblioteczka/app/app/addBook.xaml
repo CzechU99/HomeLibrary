@@ -1,0 +1,74 @@
+﻿<Window x:Class="app.addBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        WindowStartupLocation="CenterScreen"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:app"
+        mc:Ignorable="d"
+        xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" ResizeMode="NoResize" WindowStyle="None"
+        Title="addBook" Height="760" Width="500" Background="#FFD9D9D9" Closed="Window_Closed">
+
+
+    <Grid>
+
+        <!--TOP-->
+        <Rectangle HorizontalAlignment="Center" Height="25" VerticalAlignment="Top" Width="500" Fill="#FF232222" MouseLeftButtonDown="przeciagnij"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="LibraryAPP" VerticalAlignment="Top" Width="124" Foreground="White"/>
+        <Grid HorizontalAlignment="Left" Height="25" Margin="475,0,0,0" VerticalAlignment="Top" Width="25">
+            <Button Style="{StaticResource vanilla_button}" Background="#FF232222" BorderBrush="#FF232222" RenderTransformOrigin="0.5,0.5" Click="close_btn" Height="25" VerticalAlignment="Center">
+                <Ellipse Height="15" Fill="Red" Width="15" Cursor="Hand"/>
+            </Button>
+
+            <Button Style="{StaticResource vanilla_button}"  Margin="-25,0,25,0" Background="#FF232222" BorderBrush="#FF232222" RenderTransformOrigin="0.5,0.5" Click="min_btn">
+                <Ellipse Height="15" Fill="Yellow" Width="15"/>
+            </Button>
+        </Grid>
+        <TextBlock TextAlignment="Center" HorizontalAlignment="Left" Margin="450,3,0,0" TextWrapping="Wrap" Text="_" VerticalAlignment="Top" Width="25" Height="18" IsHitTestVisible="False" FontWeight="Bold"/>
+        <TextBlock TextAlignment="Center" HorizontalAlignment="Left" Margin="475,3,0,0" TextWrapping="Wrap" Text="x" VerticalAlignment="Top" Width="25" Height="18" IsHitTestVisible="False" FontWeight="Bold"/>
+
+
+
+        <!--Main-->
+        <Rectangle HorizontalAlignment="Center" Height="303" VerticalAlignment="Top" Width="500" RenderTransformOrigin="0.48,0.49" Margin="0,25,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDD7A7A"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                    <GradientStop Color="#8ADD7A7A" Offset="0.5417"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="ADD NEW BOOK" Width="500" Height="44" FontSize="32" TextAlignment="Center" LineHeight="223" Margin="0,72,0,644" FontWeight="Bold"/>
+
+
+        <TextBox  x:Name="SearchedText" HorizontalAlignment="Center" Margin="0,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="54" Padding="24,13,24,3" BorderThickness="0,0,0,0" Background="#FF1F1B1B" FontSize="20" Foreground="#FFB9B9B9" TextChanged="titleChange"/>
+        <TextBlock x:Name="title" IsHitTestVisible="False" Text="BOOK TITLE..." VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,180,0,0" Foreground="#FFB9B9B9" FontWeight="Normal" FontSize="20"/>
+
+        <ComboBox ItemContainerStyle="{DynamicResource addBook_ComboBoxItemContainerStyle1}" Style="{DynamicResource addBook_RoundedSelectStyle}" x:Name="selectAuthor" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Width="310" Height="55" SelectionChanged="ComboBox_SelectionChanged" Background="#FF1F1B1B" BorderThickness="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxDropDownHeight="150" BorderBrush="{x:Null}" FontSize="20" Padding="24,13,24,3" Foreground="#FFB9B9B9" ScrollViewer.CanContentScroll="False" Cursor="Hand" IsTextSearchEnabled="True" SelectedItem="0">
+            <!--<ComboBoxItem Name="placeholder_a" Content="AUTHORS:" IsEnabled="False" IsSelected="True" HorizontalAlignment="Left" RenderTransformOrigin="0,0" Width="291" Height="30" HorizontalContentAlignment="Left" Background="#FF1F1B1B" Foreground="#FFB9B9B9"/>-->
+        </ComboBox>
+        <Button Style="{DynamicResource xbutton}" Content="+" HorizontalAlignment="Center" Margin="416,232,0,0" VerticalAlignment="Top" Height="55" Width="54" FontWeight="Normal" FontSize="72" HorizontalContentAlignment="Center" Padding="1,1,1,1" Background="#FF1F1B1B"  Foreground="#FFB9B9B9" Click="Button_Click" Cursor="Hand"/>
+
+        <ComboBox ItemContainerStyle="{DynamicResource addBook_ComboBoxItemContainerStyle1}" Style="{DynamicResource addBook_RoundedSelectStyle}" x:Name="selectGenre" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Width="310" Height="55" SelectionChanged="ComboBox_SelectionChanged" Background="#FF1F1B1B" BorderThickness="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MaxDropDownHeight="150" BorderBrush="{x:Null}" FontSize="20" Padding="24,13,24,3" Foreground="#FFB9B9B9" ScrollViewer.CanContentScroll="False" Cursor="Hand">
+            <ComboBoxItem Name="placeholder_g" Content="GENRES:" IsEnabled="True" IsSelected="True" HorizontalAlignment="Left" RenderTransformOrigin="0,0" Width="291" Height="30" HorizontalContentAlignment="Left" Background="#FF1F1B1B"/>
+        </ComboBox>
+
+        <Button Style="{DynamicResource imageButton}" x:Name="btn_img" Content="IMAGE..." HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Width="310" Height="55" Background="#FF1F1B1B" BorderBrush="{x:Null}" Foreground="#FFB9B9B9" FontSize="20" HorizontalContentAlignment="Left" Padding="24,1,1,1" Click="Image_Button_Click" Cursor="Hand"/>
+
+        <Button Style="{DynamicResource publicationDateButton}" x:Name="pub_date" Content="PUBLICATION DATE..." HorizontalAlignment="Center" Margin="0,440,0,0" VerticalAlignment="Top" Width="310" Height="55" BorderBrush="{x:Null}" Foreground="#FFB9B9B9" FontSize="20" Click="Date_Button_Click" Cursor="Hand"/>
+
+        <TextBox  x:Name="search_ISBN" HorizontalAlignment="Center" Margin="0,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="55" Padding="24,13,24,3" BorderThickness="0,0,0,0" Background="#FF1F1B1B" FontSize="20" Foreground="#FFB9B9B9" TextChanged="isbnChange"/>
+        <TextBlock x:Name="isbnPH" IsHitTestVisible="False" Text="ISBN..." VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,523,0,0" Foreground="#FFB9B9B9" FontWeight="Normal" FontSize="20"/>
+
+        <TextBox  x:Name="search_HOUSE" HorizontalAlignment="Center" Margin="0,578,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="56" Padding="24,13,24,3" BorderThickness="0,0,0,0" Background="#FF1F1B1B" FontSize="20" Foreground="#FFB9B9B9" TextChanged="houseChange"/>
+        <TextBlock x:Name="housePH" IsHitTestVisible="False" Text="PUBLISHING HOUSE..." VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,592,0,0" Foreground="#FFB9B9B9" FontWeight="Normal" FontSize="20"/>
+
+        <Button Style="{DynamicResource buttonAddBook}" Content="ADD BOOK" HorizontalAlignment="Center" Margin="0,672,0,0" VerticalAlignment="Top" Width="310" Height="65" BorderBrush="#FF1F1B1B" Background="{x:Null}" FontSize="32" BorderThickness="4,4,4,4" Click="add_book" Cursor="Hand"/>
+        <Image IsHitTestVisible="False" HorizontalAlignment="Left" Height="34" Margin="350,380,0,0" VerticalAlignment="Top" Width="36" Source="/icons8-add-image-30.png"/>
+        <Image IsHitTestVisible="False" HorizontalAlignment="Left" Height="28" Margin="353,454,0,0" VerticalAlignment="Top" Width="30" Source="/icons8-tear-off-calendar-50.png"/>
+
+
+    </Grid>
+
+</Window>
