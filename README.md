@@ -1,2 +1,2 @@
-# home-library2
-university group project
+# HomeLibrary
+Group project at university
